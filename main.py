@@ -24,7 +24,7 @@ class Car:
         return f"==========\n" \
                f"차종: {self.title}\n" \
                f"가격: {self.price},\n" \
-               f"연식/주행거리/연료: {self.date}\n" \
+               f"연식/ 주행거리/ 연료: {self.date}\n" \
                f"링크: https://shop.mercedes-benz.com{self.link}" \
                f"\n==========\n"
 
