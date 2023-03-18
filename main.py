@@ -5,13 +5,12 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from dotenv import load_dotenv
+import os
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(options=chrome_options)
-
-token = "6133749067:AAEj1H_HffM2WhtjvcHbJRGV27ApyQqiUWQ"
-chat_id = "1440522798"
 
 
 class Car:
@@ -82,10 +81,13 @@ def get_cars():
         # close the webdriver
 
     driver.quit()
-
+    # Access the environment variables
+    token = os.getenv("TOKEN")
+    chat_id = os.getenv("CHAT_ID")
     url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={message}"
     print(requests.get(url).json())  # this sends the message
 
 
 if __name__ == '__main__':
+    load_dotenv()  # Load environment variables from .env file
     get_cars()
