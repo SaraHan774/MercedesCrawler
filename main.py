@@ -85,9 +85,8 @@ def get_cars():
     token = os.getenv("TOKEN")
     chat_id = os.getenv("CHAT_ID")
     url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={message}"
-    print(requests.get(url).json())  # this sends the message
+    requests.get(url).json()  # this sends the message
 
 
-if __name__ == '__main__':
-    load_dotenv()  # Load environment variables from .env file
-    get_cars()
+load_dotenv()  # Load environment variables from .env file
+get_cars()
